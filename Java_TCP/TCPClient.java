@@ -22,6 +22,7 @@ class TCPClient {
                 num1 = in.nextLine();
                 if (num1.isEmpty()) {
                     num1 = "!DISCONNECT";
+                    outToServer.writeBytes(num1 + '\n');
                     break;
                 }
                 outToServer.writeBytes(num1 + '\n');
@@ -31,6 +32,7 @@ class TCPClient {
                 num2 = in.nextLine();
                 if (num2.isEmpty()) {
                     num2 = "!DISCONNECT";
+                    outToServer.writeBytes(num2 + '\n');
                     break;
                 }
                 outToServer.writeBytes(num2 + '\n');

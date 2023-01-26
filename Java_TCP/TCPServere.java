@@ -21,9 +21,9 @@ public class TCPServere {
         while (true) {
             try {
                 System.out.println("Waiting for client connection at port number 5678");
-                connectionSocket = welcomeSocket.accept(); 
+                connectionSocket = welcomeSocket.accept();
                 inFromClient = new Scanner(connectionSocket.getInputStream());
-                outToClient = new DataOutputStream(connectionSocket.getOutputStream()); 
+                outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
                 while (true) {
                     System.out.println("STARTING...");
@@ -31,31 +31,30 @@ public class TCPServere {
                     outToClient.writeBytes(status);
                     num1 = inFromClient.nextLine();
                     if (num1.equals("!DISCONNECT")) {
-                        System.out.println("Close connection");
+                        System.out.println("DISCONNECTING...");
                         break;
                     }
-                    System.out.println(status);
-                    System.out.println(num1);
+                    System.out.println("Num 1 is " + num1);
     
                     status = "enter number 2 (to end just press enter) : " + '\n';
                     outToClient.writeBytes(status);
                     num2 = inFromClient.nextLine();
                     if (num2.equals("!DISCONNECT")) {
-                        System.out.println("Close connection");
+                        System.out.println("DISCONNECTING...");
                         break;
                     }
-                    System.out.println(status);
-                    System.out.println(num2);
+                    System.out.println("Num 1 is " + num2);
     
                     status = "The result is :" + (Integer.parseInt(num1) + Integer.parseInt(num2)) + '\n';
                     outToClient.writeBytes(status);
-                    System.out.println(status);
+                    System.out.print(status);
                 }
             }
             catch (IOException e) {
                 System.out.println("Error cannot create this connection");
             }
             finally {
+                System.out.println("Connection Close");
                 try {
                     if (inFromClient != null)
                         inFromClient.close();
