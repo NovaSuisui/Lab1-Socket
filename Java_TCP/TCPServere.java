@@ -5,7 +5,7 @@ import java.util.*;
 public class TCPServere {
     private static ServerSocket welcomeSocket;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         String num1, num2;
         String status = "";
         ServerSocket welcomeSocket = null;

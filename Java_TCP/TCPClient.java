@@ -3,8 +3,7 @@ import java.net.*;
 import java.util.*;
 
 class TCPClient { 
-    public static void main(String argv[]) throws Exception 
-    {
+    public static void main(String argv[]) throws Exception {
         String status = "";
         Scanner in = new Scanner(System.in);
         Socket clientSocket = null;
