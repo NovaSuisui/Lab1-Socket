@@ -18,7 +18,7 @@ class TCPClient {
 
             while (true) {
                 status = inFromServer.nextLine();
-                System.out.println(status);
+                System.out.print(status);
                 num1 = in.nextLine();
                 if (num1.isEmpty()) {
                     num1 = "!DISCONNECT";
@@ -27,7 +27,7 @@ class TCPClient {
                 outToServer.writeBytes(num1 + '\n');
     
                 status = inFromServer.nextLine();
-                System.out.println(status);
+                System.out.print(status);
                 num2 = in.nextLine();
                 if (num2.isEmpty()) {
                     num2 = "!DISCONNECT";

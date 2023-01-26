@@ -26,24 +26,30 @@ public class TCPServere {
                 outToClient = new DataOutputStream(connectionSocket.getOutputStream()); 
 
                 while (true) {
-                    status = "enter number 1 (to end just press enter) : "+ '\n';
+                    System.out.println("STARTING...");
+                    status = "enter number 1 (to end just press enter) : " + '\n';
                     outToClient.writeBytes(status);
                     num1 = inFromClient.nextLine();
                     if (num1.equals("!DISCONNECT")) {
                         System.out.println("Close connection");
                         break;
                     }
+                    System.out.println(status);
+                    System.out.println(num1);
     
-                    status = "enter number 2 (to end just press enter) : "+ '\n';
+                    status = "enter number 2 (to end just press enter) : " + '\n';
                     outToClient.writeBytes(status);
                     num2 = inFromClient.nextLine();
                     if (num2.equals("!DISCONNECT")) {
                         System.out.println("Close connection");
                         break;
                     }
+                    System.out.println(status);
+                    System.out.println(num2);
     
-                    status = "The result is :" + (Integer.parseInt(num1) + Integer.parseInt(num2));
+                    status = "The result is :" + (Integer.parseInt(num1) + Integer.parseInt(num2)) + '\n';
                     outToClient.writeBytes(status);
+                    System.out.println(status);
                 }
             }
             catch (IOException e) {
